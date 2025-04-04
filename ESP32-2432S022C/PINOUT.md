@@ -1,6 +1,6 @@
 # ESP32-2432S022C Pinout
 
-The ESP32-2432S022C is a development board based on the ESP32-S2-WROOM-32 module, featuring a 240x320 ST7789 display, CST816S touch controller, SD card support, and a speaker. It supports various peripherals like I2C, SPI, UART, and touch sensors. Below is the updated pinout for the board, incorporating the specific pin assignments from the configuration.
+The ESP32-2432S022C is a development board based on the ESP32-S2-WROOM-32 module, featuring a 240x320 ST7789 display, CST816S touch controller, SD card support, and a speaker. It supports various peripherals like I2C, SPI, UART, and touch sensors.
 
 ## Pinout Table
 
