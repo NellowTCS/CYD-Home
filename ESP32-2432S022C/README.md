@@ -1,16 +1,16 @@
 # ESP32-2432S022C Development Board
 
-The ESP32-2432S022C is a versatile development board based on the ESP32-S2-WROOM-32 module by Sunton. It features a 240x320 ST7789 display, CST816S touch controller, SD card support, and a speaker, making it ideal for IoT projects, home automation, and interactive displays. With built-in Wi-Fi, a variety of GPIO pins, and support for multiple communication protocols (I2C, SPI, UART), this board is perfect for hobbyists and developers looking to create touch-enabled applications.
+The ESP32-2432S022C is a versatile development board based on the **ESP32-WROOM-32** module by Sunton. It features a 240x320 ST7789 display, CST816S touch controller, SD card support, and a speaker, making it ideal for IoT projects, home automation, and interactive displays. With built-in Wi-Fi, a variety of GPIO pins, and support for multiple communication protocols (I2C, SPI, UART), this board is perfect for hobbyists and developers looking to create touch-enabled applications.
 
 ## Features
 
-- **Microcontroller**: ESP32-S2-WROOM-32 (single-core, 240 MHz)
+- **Microcontroller**: ESP32-WROOM-32 (dual-core, 240 MHz)
 - **Display**: 240x320 ST7789 TFT LCD with 8-bit I80 interface
 - **Touch**: CST816S capacitive touch controller (I2C)
 - **Storage**: MicroSD card slot (SPI interface)
 - **Audio**: Built-in speaker for simple audio output
 - **Connectivity**: Wi-Fi (802.11 b/g/n)
-- **Memory**: 4MB Flash, 320KB SRAM
+- **Memory**: 4MB Flash, 520KB SRAM
 - **Power**: 3.3V or 5V via USB-C or VIN pin
 - **GPIO**: Multiple GPIO pins with ADC, touch, and communication capabilities
 
@@ -19,15 +19,15 @@ The ESP32-2432S022C is a versatile development board based on the ESP32-S2-WROOM
 ### Prerequisites
 
 - **Hardware**: ESP32-2432S022C board, USB-C cable
-- **Software**: 
+- **Software**:
   - Arduino IDE or PlatformIO with ESP32 support
-  - ESP-IDF (optional for advanced users) 
-  - USB-to-Serial drivers
+  - ESP-IDF (optional for advanced users)
+  - USB-to-Serial drivers (e.g., CP210x or CH340, depending on your board's chip)
 
-### Installation
+### Installation (Arduino IDE)
 
 1. **Set Up Your Development Environment**:
-   - Install the Arduino IDE or PlatformIO.
+   - Install the [Arduino IDE](https://www.arduino.cc/en/software) or [PlatformIO](https://platformio.org/).
    - Add ESP32 board support:
      - In Arduino IDE, go to `File > Preferences`, add the following URL to "Additional Boards Manager URLs":
        ```
@@ -45,7 +45,38 @@ The ESP32-2432S022C is a versatile development board based on the ESP32-S2-WROOM
    - Modify the LED pin to a free GPIO (e.g., GPIO23, as many pins are used for the display and touch).
    - Upload the sketch and verify the board is working.
 
-### Pinout
+### Installation (ESP-IDF)
+
+For advanced users who prefer to use the ESP-IDF framework:
+
+1. **Install ESP-IDF**:
+   - Follow the [official ESP-IDF setup guide](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/index.html) for your operating system (Windows, macOS, or Linux).
+   - Ensure you have the latest stable release of ESP-IDF compatible with the ESP32.
+
+2. **Configure the Project**:
+   - Create a new project or use an example from the ESP-IDF repository (e.g., `get-started/hello_world`).
+   - Run `idf.py menuconfig` to configure project settings, such as flash size (4MB) and partition table (default).
+
+3. **Build and Flash**:
+   - Build the project with:
+     ```
+     idf.py build
+     ```
+   - Flash the firmware to the board with:
+     ```
+     idf.py -p /dev/ttyUSB0 flash
+     ```
+     (Replace `/dev/ttyUSB0` with your serial port, e.g., `COM3` on Windows.)
+   - Monitor the output with:
+     ```
+     idf.py -p /dev/ttyUSB0 monitor
+     ```
+
+4. **Customizing for ESP32-2432S022C**:
+   - The ST7789 display, CST816S touch controller, SD card, and speaker require specific drivers or configurations. Refer to the [Pinout Documentation](PINOUT.md) for GPIO assignments.
+   - You may need to integrate libraries (e.g., for the display or touch) into your ESP-IDF project.
+
+## Pinout
 
 For a detailed pinout, including GPIO functions and assignments for the display, touch, SD card, and speaker, refer to the [Pinout Documentation](PINOUT.md). A brief overview:
 
