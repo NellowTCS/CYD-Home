@@ -1,27 +1,27 @@
 # ESP32-2432S022C Example Projects
 
-The ESP32-2432S022C board is a powerful platform for creating interactive projects, thanks to its display, touch controller, SD card support, and speaker. Below are some example projects to help you get started. These projects leverage the board's features and can be expanded based on your needs.
+The ESP32-2432S022C board is a powerful platform for creating interactive projects, thanks to its **built-in** **ST7789 display**, **CST816S touch controller**, **SD card slot**, and **speaker**. Below are some example projects to help you get started. These projects leverage the board’s integrated features and can be expanded based on your needs.
 
 ## Project 1: Display Sensor Data on the Screen
 
 ### Overview
-Use the ST7789 display to show real-time sensor data, such as temperature and humidity, using a sensor like the DHT11 or BME280.
+Use the **built-in ST7789 display** to show real-time sensor data, such as temperature and humidity, from an external sensor like the DHT11 or BME280.
 
 ### Requirements
-- ESP32-2432S022C board
-- DHT11 or BME280 sensor
+- ESP32-2432S022C board (with built-in ST7789 display)
+- DHT11 or BME280 sensor (external)
 - Arduino IDE with ESP32 support
 - Libraries: `TFT_eSPI` (for the display), `DHT` or `Adafruit_BME280`
 
 ### Steps
 1. **Connect the Sensor**:
    - Connect the DHT11/BME280 to a free GPIO (e.g., GPIO23 for data).
-   - Power the sensor with 3.3V and GND.
+   - Power the sensor with 3.3V and GND from the board.
 2. **Set Up the Display**:
    - Install the `TFT_eSPI` library in Arduino IDE.
    - Configure `User_Setup.h` in the library for the ST7789 display (set resolution to 240x320, adjust pin definitions as per the [Pinout Documentation](PINOUT.md)).
 3. **Write the Code**:
-   - Initialize the display and sensor.
+   - Initialize the built-in display and sensor.
    - Read sensor data every few seconds and display it on the screen.
    ```cpp
    #include <TFT_eSPI.h>
@@ -52,19 +52,19 @@ Use the ST7789 display to show real-time sensor data, such as temperature and hu
    }
    ```
 4. **Upload and Test**:
-   - Upload the sketch and verify the sensor data is displayed.
+   - Upload the sketch and verify the sensor data appears on the **built-in display**.
 
 ### Expansion Ideas
 - Add a graph to visualize temperature trends over time.
-- Log data to the SD card for later analysis.
+- Log data to the **built-in SD card slot** for later analysis.
 
 ## Project 2: Touch-Controlled Smart Home Dashboard
 
 ### Overview
-Create a touch-enabled dashboard using openHASP to control smart home devices (e.g., lights, fans) via MQTT.
+Create a touch-enabled dashboard using openHASP to control smart home devices (e.g., lights, fans) via MQTT, utilizing the **built-in CST816S touch controller**.
 
 ### Requirements
-- ESP32-2432S022C board
+- ESP32-2432S022C board (with built-in CST816S touch controller and ST7789 display)
 - MQTT broker (e.g., Mosquitto)
 - Smart home devices (or simulate with LEDs)
 - openHASP firmware
@@ -75,12 +75,12 @@ Create a touch-enabled dashboard using openHASP to control smart home devices (e
    - Flash the firmware using `esptool.py` or a similar tool.
 2. **Configure openHASP**:
    - Connect the board to your Wi-Fi network via the openHASP web interface.
-   - Design a dashboard layout with buttons and labels using openHASP's configuration files.
+   - Design a dashboard layout with buttons and labels using openHASP’s configuration files.
 3. **Set Up MQTT**:
    - Configure openHASP to connect to your MQTT broker.
    - Map touch buttons to MQTT topics (e.g., `home/light1` to toggle a light).
 4. **Test the Dashboard**:
-   - Touch the buttons on the screen to control devices.
+   - Use the **built-in touch screen** to interact with the dashboard.
    - Verify the MQTT messages are sent and received correctly.
 
 ### Expansion Ideas
@@ -90,17 +90,16 @@ Create a touch-enabled dashboard using openHASP to control smart home devices (e
 ## Project 3: Play Audio Tones Through the Speaker
 
 ### Overview
-Use the speaker to play simple tones or melodies, such as a startup sound or alert.
+Use the **built-in speaker** to play simple tones or melodies, such as a startup sound or alert.
 
 ### Requirements
-- ESP32-2432S022C board
+- ESP32-2432S022C board (with built-in speaker)
 - Arduino IDE with ESP32 support
 - Library: `ToneESP32` (or use the built-in `tone()` function)
-- Speaker with 2 pin 1.25mm pitch connector
 
 ### Steps
 1. **Verify Speaker Pin**:
-   - The speaker should be connected to GPIO26 (see [Pinout Documentation](PINOUT.md)).
+   - The **built-in speaker** is connected to GPIO26 (see [Pinout Documentation](PINOUT.md)).
 2. **Write the Code**:
    - Use the `tone()` function to generate a simple melody.
    ```cpp
@@ -122,21 +121,21 @@ Use the speaker to play simple tones or melodies, such as a startup sound or ale
    }
    ```
 3. **Upload and Test**:
-   - Upload the sketch and listen for the melody through the speaker.
+   - Upload the sketch and listen for the melody through the **built-in speaker**.
 
 ### Expansion Ideas
 - Play a full song by defining a melody array with notes and durations.
-- Read audio files from the SD card and play them (requires additional libraries like `ESP32-audioI2S`).
+- Read audio files from the **built-in SD card slot** and play them (requires additional libraries like `ESP32-audioI2S`).
 
 ## Project 4: SD Card Data Logger
 
 ### Overview
-Log sensor data (e.g., temperature) to the SD card for later retrieval.
+Log sensor data (e.g., temperature) to the **built-in SD card slot** for later retrieval.
 
 ### Requirements
-- ESP32-2432S022C board
-- MicroSD card
-- DHT11 sensor (optional)
+- ESP32-2432S022C board (with built-in SD card slot)
+- MicroSD card (inserted into the built-in slot)
+- DHT11 sensor (optional, for logging data)
 - Arduino IDE with ESP32 support
 - Library: `SD` (built into Arduino ESP32 core)
 
@@ -173,7 +172,7 @@ Log sensor data (e.g., temperature) to the SD card for later retrieval.
    }
    ```
 3. **Upload and Test**:
-   - Upload the sketch, insert an SD card, and check for the `log.txt` file.
+   - Upload the sketch, insert a MicroSD card into the **built-in slot**, and check for the `log.txt` file.
 
 ### Expansion Ideas
 - Log touch events or display interactions to the SD card.
