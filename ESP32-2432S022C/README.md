@@ -21,8 +21,8 @@ The ESP32-2432S022C is a versatile development board based on the ESP32-S2-WROOM
 - **Hardware**: ESP32-2432S022C board, USB-C cable
 - **Software**: 
   - Arduino IDE or PlatformIO with ESP32 support
-  - ESP-IDF (optional for advanced users)
-  - USB-to-Serial drivers (e.g., CP210x or CH340, depending on your board's chip)
+  - ESP-IDF (optional for advanced users) 
+  - USB-to-Serial drivers
 
 ### Installation
 
