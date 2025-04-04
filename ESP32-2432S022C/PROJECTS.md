@@ -19,7 +19,7 @@ Use the ST7789 display to show real-time sensor data, such as temperature and hu
    - Power the sensor with 3.3V and GND.
 2. **Set Up the Display**:
    - Install the `TFT_eSPI` library in Arduino IDE.
-   - Configure `User_Setup.h` in the library for the ST7789 display (set resolution to 240x320, adjust pin definitions as per the [Pinout Documentation](pinout.md)).
+   - Configure `User_Setup.h` in the library for the ST7789 display (set resolution to 240x320, adjust pin definitions as per the [Pinout Documentation](PINOUT.md)).
 3. **Write the Code**:
    - Initialize the display and sensor.
    - Read sensor data every few seconds and display it on the screen.
